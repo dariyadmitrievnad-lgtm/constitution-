@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История конституции России - Главная</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body class="home-page">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="burger-menu" id="burgerMenu">
+                    <div class="burger-menu_stick"></div>
+                    <div class="burger-menu_stick"></div>
+                    <div class="burger-menu_stick"></div>
+                </div>
+                <nav id="mainNav">
+                    <ul>
+                        <li>
+                            <a href="index.html">
+                                <div class="burger-menu_mobile-button">Главная</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="chronology.html">
+                                <div class="burger-menu_mobile-button">Хронология</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="documents.html">
+                                <div class="burger-menu_mobile-button">Документы</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="hero-section">
+            <div class="block-1">
+                <h4 class="tri">Историческое наследие</h4>
+                <h1 class="odin">История появления</h1>
+                <h1 class="dva">Конституции России</h1>
+                <h4 class="chetire">Путешествие через века конституционного развития России — от первых основных законов до современной Конституции Российской Федерации</h4>
+            </div>
+            <div class="block-2">
+                <a href="chronology.html" class="block-2-1">
+                    <p>Изучить хронологию</p>
+                </a>
+                <a href="documents.html" class="block-2-2">
+                    <p>Посмотреть документы</p>
+                </a>
+            </div>
+        </section>
+        <section class="chronology-section">
+                <h2 class="hr">Ключевые этапы</h2>
+                <h3 class="cl">Основные вехи конституционной истории</h3>
+        
+            <div class="timeline">
+                <table class="timeline-table">
+                    <tbody>
+                        <tr class="timeline-item">
+                            <td class="timeline-content">
+                                <h4>1906 год - Основные государственные законы</h4>
+                                <p>Первая российская конституция, принятая в период Первой русской революции.</p>
+                                <a href="chronology.html#1906" class="read-more">Подробнее</a>
+                            </td>
+                        </tr>
+                        <tr class="timeline-item">
+                            <td class="timeline-content">
+                                <h4>1993 год - Конституция РФ</h4>
+                                <p>Действующая конституция России, принятая всенародным голосованием.</p>
+                                <a href="chronology.html#1993" class="read-more">Подробнее</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="centered-button">
+                <a href="chronology.html" class="block-2-1">Вся хронология</a>
+            </div>
+        </section>
+        
+        <section class="documents-section">
+            <h2 class="ist">Важные документы</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="images/1906.jpg" alt="Основные государственные законы Российской империи 1906 года">
+                    <div class="p_1">Конституция 1906 года</div>
+                    <a href="documents.html#1906" class="read-more">Изучить документ</a>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/current.jpg" alt="Конституция Российской Федерации 1993 года">
+                    <div class="p_1">Современная конституция</div>
+                    <a href="documents.html#1993" class="read-more">Изучить документ</a>
+                </div>
+            </div>
+            <div class="centered-button">
+                <a href="documents.html" class="block-2-1">Все документы</a>
+            </div>
+        </section>
+        <section class="audio-section">
+            <div class="audio-container">
+                <h2 class="hr">Государственный гимн СССР</h2>
+                <div class="audio-card" style="margin-bottom: 30px;">
+                    <div class="audio-player">
+                        <audio controls style="width: 100%;">
+                            <source src="audio/gimn.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="video-section">
+            <h2 class="hr">Зал Конституции</h2>
+            <h3 class="cl">Президентская библиотека имени Б.Н. Ельцина</h3>
+            <div class="video-container">
+                <div class="video-card">
+                    <div class="video-player">
+                        <video controls poster="images/constitution-hall-poster.png">
+                            <source src="constitution-hall.mp4">
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h4>Зал Конституции в Президентской библиотеке</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p>Email: demidovadashenca@yandex.ru</p>
+                        <p>Телефон: +7 (929) 044 50 46</p>
+                        <p>Демидова Дарья Дмитриевна</p>
+                        <p>Группа: 25-ИСТ-2</p>
+                    </div>
+                </div>
+            
+                <div class="footer-section">
+                    <h3>Подписаться на обновления</h3>
+                    <form class="subscription-form" action="#" method="POST">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="email" placeholder="Ваш email" required>
+                    
+                        <div class="gender-form">
+                            <label>Пол:</label>
+                            <div class="gender-options">
+                                <div class="gender-option">
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label for="male">Мужской</label>
+                                </div>
+                                <div class="gender-option">
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label for="female">Женский</label>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <button type="submit">Подписаться</button>
+                    </form>
+                </div>
+            
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="chronology.html">Хронология</a></li>
+                        <li><a href="documents.html">Документы</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
