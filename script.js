@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     initSubscriptionModal();
     initDocumentButtons();
-    loadSavedSubscriptionData(); // Загружаем сохраненные данные при загрузке страницы
+    loadSavedSubscriptionData();
 
     function initBasicAnimations() {
         initHoverEffects();
     }
-    
+
     function initAnimeAnimations() {
         animateCommonElements();
         if (document.querySelector('.home-page')) {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         initHoverEffects();
     }
-    
+
     function animateCommonElements() {
         if (document.querySelector('.hr')) {
             anime({
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 easing: 'easeOutCubic'
             });
         }
-        
+
         if (document.querySelector('.cl')) {
             anime({
                 targets: '.cl',
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 easing: 'easeOutCubic'
             });
         }
-        
+
         if (document.querySelector('.tri')) {
             anime({
                 targets: '.tri, .odin, .dva, .chetire',
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 easing: 'easeOutCubic'
             });
         }
-        
+
         if (document.querySelector('.block-2-1')) {
             anime({
                 targets: '.block-2-1, .block-2-2',
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
+
     function animateHomePage() {
         console.log('Инициализация анимаций для главной страницы');
         const documentCards = document.querySelectorAll('.document-card');
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         }
-        
+
         const galleryImages = document.querySelectorAll('.gallery-item img');
         if (galleryImages.length > 0) {
             anime({
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 easing: 'easeOutCubic'
             });
         }
-        
+
         if (document.querySelector('.audio-card')) {
             anime({
                 targets: '.audio-card, .video-card',
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
+
     function animateChronologyPage() {
         console.log('Инициализация анимаций для страницы хронологии');
         const timelineItems = document.querySelectorAll('.timeline-content, .timeline-item.detailed');
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         }
-        
+
         const timelineYears = document.querySelectorAll('.timeline-year');
         if (timelineYears.length > 0) {
             timelineYears.forEach(year => {
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
+
     function animateDocumentsPage() {
         console.log('Инициализация анимаций для страницы документов');
         const documentCards = document.querySelectorAll('.document-card');
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         }
-        
+
         const documentImages = document.querySelectorAll('.document-image img');
         if (documentImages.length > 0) {
             anime({
@@ -172,14 +172,221 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    
+
     function initHoverEffects() {
         console.log('Инициализация hover эффектов');
-        
-        // ... (остальной код hover эффектов остается без изменений)
-        // Опускаю для краткости, но он должен остаться таким же
+        const documentCards = document.querySelectorAll('.document-card');
+        documentCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        translateY: -10,
+                        scale: 1.02,
+                        boxShadow: '0 15px 30px rgba(0,0,0,0.15)',
+                        duration: 400,
+                        easing: 'easeOutCubic'
+                    });
+                    const img = this.querySelector('img');
+                    if (img) {
+                        anime({
+                            targets: img,
+                            scale: 1.05,
+                            duration: 400,
+                            easing: 'easeOutCubic'
+                        });
+                    }
+                } else {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+                    
+                    const img = this.querySelector('img');
+                    if (img) {
+                        img.style.transform = 'scale(1.05)';
+                        img.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
+                    }
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        translateY: 0,
+                        scale: 1,
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                        duration: 400,
+                        easing: 'easeOutCubic'
+                    });
+                    const img = this.querySelector('img');
+                    if (img) {
+                        anime({
+                            targets: img,
+                            scale: 1,
+                            duration: 400,
+                            easing: 'easeOutCubic'
+                        });
+                    }
+                } else {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                    const img = this.querySelector('img');
+                    if (img) {
+                        img.style.transform = 'scale(1)';
+                        img.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                    }
+                }
+            });
+        });
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        galleryImages.forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        scale: 1.05,
+                        boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
+                        duration: 400,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.3)';
+                }
+            });
+            img.addEventListener('mouseleave', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        scale: 1,
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
+                        duration: 400,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                }
+            });
+        });
+        const navLinks = document.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        backgroundColor: getHoverColor(this),
+                        color: getTextColor(this),
+                        scale: 1.05,
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.backgroundColor = getHoverColor(this);
+                    this.style.color = getTextColor(this);
+                    this.style.transform = 'scale(1.05)';
+                }
+            });
+            link.addEventListener('mouseleave', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        backgroundColor: getOriginalColor(this),
+                        color: getOriginalTextColor(this),
+                        scale: 1,
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.backgroundColor = getOriginalColor(this);
+                    this.style.color = getOriginalTextColor(this);
+                    this.style.transform = 'scale(1)';
+                }
+            });
+        });
+        const timelineItems = document.querySelectorAll('.timeline-content, .timeline-item.detailed');
+        timelineItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        translateX: 10,
+                        backgroundColor: '#FFF5F5',
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.backgroundColor = '#FFF5F5';
+                }
+            });
+            item.addEventListener('mouseleave', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        translateX: 0,
+                        backgroundColor: '#FFFFFF',
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.transform = 'translateX(0)';
+                    this.style.backgroundColor = '#FFFFFF';
+                }
+            });
+        });
+        const mediaCards = document.querySelectorAll('.audio-card, .video-card');
+        mediaCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        translateY: -5,
+                        scale: 1.02,
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                }
+            });
+            card.addEventListener('mouseleave', function() {
+                if (typeof anime !== 'undefined') {
+                    anime({
+                        targets: this,
+                        translateY: 0,
+                        scale: 1,
+                        duration: 300,
+                        easing: 'easeOutCubic'
+                    });
+                } else {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+        if (typeof anime !== 'undefined') {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 800,
+                            easing: 'easeOutCubic'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            const scrollElements = document.querySelectorAll(
+                '.document-card, .audio-card, .video-card, .gallery-item, .timeline-item, .document-image'
+            );
+            scrollElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
     }
-    
+
     function initDocumentButtons() {
         console.log('Инициализация кнопок документов');
         const documentButtons = document.querySelectorAll('.document-actions .block-2-1');
@@ -190,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     function handleDocumentButtonClick(e) {
         e.preventDefault();
         const documentCard = this.closest('.document-card');
@@ -199,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const documentId = documentCard.id;
         redirectToDevelopmentPage(documentTitle, documentYear, documentId);
     }
-    
+
     function redirectToDevelopmentPage(title, year, id) {
         const encodedTitle = encodeURIComponent(title);
         const encodedYear = encodeURIComponent(year);
@@ -207,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const developmentUrl = `development.html?title=${encodedTitle}&year=${encodedYear}&id=${encodedId}`;
         window.location.href = developmentUrl;
     }
-    
+
     function getHoverColor(element) {
         if (element.classList.contains('burger-menu_mobile-button')) return '#791A1A';
         if (element.classList.contains('block-2-1')) return '#710909';
@@ -215,14 +422,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (element.parentElement.classList.contains('footer-links')) return '#FBF1F1';
         return 'transparent';
     }
-    
+
     function getTextColor(element) {
         if (element.classList.contains('burger-menu_mobile-button')) return 'white';
         if (element.classList.contains('block-2-1')) return 'white';
         if (element.parentElement.classList.contains('footer-links')) return '#710909';
         return '#791A1A';
     }
-    
+
     function getOriginalColor(element) {
         if (element.classList.contains('burger-menu_mobile-button')) return '#C07878';
         if (element.classList.contains('block-2-1')) return '#791A1A';
@@ -230,15 +437,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (element.parentElement.classList.contains('footer-links')) return 'transparent';
         return 'transparent';
     }
-    
+
     function getOriginalTextColor(element) {
         if (element.classList.contains('burger-menu_mobile-button')) return 'white';
         if (element.classList.contains('block-2-1')) return 'white';
         if (element.parentElement.classList.contains('footer-links')) return '#791A1A';
         return '#791A1A';
     }
-    
-    // Функция для загрузки сохраненных данных подписки
+
     function loadSavedSubscriptionData() {
         try {
             const savedData = localStorage.getItem('userSubscription');
@@ -246,24 +452,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 const userData = JSON.parse(savedData);
                 console.log('Загружены сохраненные данные подписки:', userData);
                 
-                // Заполняем формы сохраненными данными
                 const subscriptionForms = document.querySelectorAll('.subscription-form');
                 subscriptionForms.forEach(form => {
                     const nameInput = form.querySelector('input[type="text"]');
                     const emailInput = form.querySelector('input[type="email"]');
-                    const genderInputs = form.querySelectorAll('input[name="gender"]');
                     
                     if (nameInput) nameInput.value = userData.name || '';
                     if (emailInput) emailInput.value = userData.email || '';
                     
-                    // Устанавливаем выбранный пол
-                    if (userData.gender && genderInputs.length > 0) {
-                        genderInputs.forEach(input => {
-                            if (input.value === userData.gender) {
-                                input.checked = true;
-                            }
-                        });
-                    }
+                    const genderInputs = form.querySelectorAll('input[name="gender"]');
+                    genderInputs.forEach(input => {
+                        input.checked = false;
+                    });
                 });
                 
                 return userData;
@@ -273,14 +473,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return null;
     }
-    
-    // Функция для сохранения данных подписки
-    function saveSubscriptionData(name, email, gender = '') {
+
+    function saveSubscriptionData(name, email) {
         try {
             const userData = {
                 name: name,
                 email: email,
-                gender: gender,
                 subscriptionDate: new Date().toISOString(),
                 lastUpdated: new Date().toISOString()
             };
@@ -288,7 +486,6 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('userSubscription', JSON.stringify(userData));
             console.log('Данные подписки сохранены в localStorage:', userData);
             
-            // Сохраняем также в массив подписчиков (для истории)
             saveToSubscribersList(userData);
             
             return userData;
@@ -297,24 +494,20 @@ document.addEventListener('DOMContentLoaded', function() {
             return null;
         }
     }
-    
-    // Функция для сохранения в список подписчиков
+
     function saveToSubscribersList(userData) {
         try {
             let subscribers = JSON.parse(localStorage.getItem('subscribersList')) || [];
             
-            // Проверяем, есть ли уже такой email в списке
             const existingIndex = subscribers.findIndex(sub => sub.email === userData.email);
             
             if (existingIndex !== -1) {
-                // Обновляем существующую запись
                 subscribers[existingIndex] = {
                     ...subscribers[existingIndex],
                     ...userData,
                     lastUpdated: new Date().toISOString()
                 };
             } else {
-                // Добавляем новую запись
                 subscribers.push({
                     ...userData,
                     id: Date.now().toString(),
@@ -328,11 +521,10 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Ошибка при сохранении в список подписчиков:', error);
         }
     }
-    
+
     function initSubscriptionModal() {
         console.log('Инициализация всплывающего окна подписки');
         
-        // Проверяем, есть ли уже сохраненная подписка
         const savedData = loadSavedSubscriptionData();
         if (savedData) {
             console.log('У пользователя уже есть сохраненная подписка');
@@ -503,7 +695,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const nameInput = this.querySelector('input[type="text"]');
                 const emailInput = this.querySelector('input[type="email"]');
-                const genderInput = this.querySelector('input[name="gender"]:checked');
                 
                 if (!nameInput.value.trim() || !emailInput.value.trim()) {
                     showModal('Пожалуйста, заполните все обязательные поля.');
@@ -515,22 +706,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
                 
-                // Сохраняем данные в localStorage
                 const savedData = saveSubscriptionData(
                     nameInput.value.trim(),
-                    emailInput.value.trim(),
-                    genderInput ? genderInput.value : ''
+                    emailInput.value.trim()
                 );
                 
                 let message = '';
                 if (savedData) {
                     message = `Уважаемый(ая) <strong>${savedData.name}</strong>, благодарим вас за подписку на обновления проекта "История конституции России"!<br><br>`;
                     message += `На ваш email <strong>${savedData.email}</strong> будут приходить уведомления о новых материалах, документах и событиях.`;
-                    
-                    if (savedData.gender) {
-                        const genderText = savedData.gender === 'male' ? 'мужской' : 'женский';
-                        message += `<br><br>Пол: <strong>${genderText}</strong>`;
-                    }
                     
                     message += `<br><br>Ваши данные сохранены. Вы всегда можете обновить их, заполнив форму заново.`;
                     message += `<br><br>Дата подписки: <strong>${new Date(savedData.subscriptionDate).toLocaleDateString('ru-RU')}</strong>`;
