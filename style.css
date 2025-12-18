@@ -56,6 +56,7 @@ a {
     text-decoration: none;
     font-weight: 500;
     text-align: center;
+    padding: 10px;
 }
 .hero-section {
     padding: 40px 0;
@@ -538,8 +539,8 @@ footer {
     margin-bottom: 10px;
 }
 .document-features ul {
-    margin-left: 20px;
-    color: black;
+    margin-left: 0;
+    padding-left: 0;
 }
 .document-features li {
     margin-bottom: 8px;
@@ -790,4 +791,163 @@ footer {
 .video-player video::poster {
     object-fit: cover;
     background-color: #FBF1F1;
+}
+/*development*/
+.development-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.development-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+.development-container {
+    max-width: 600px;
+    width: 100%;
+}
+.development-icon {
+    font-size: 80px;
+    color: #C07878;
+    margin-bottom: 30px;
+}
+.development-title {
+    color: #791A1A;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.development-subtitle {
+    color: #710909;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.development-info {
+    background: #FFF5F5;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px 0;
+    border-left: 5px solid #C07878;
+    text-align: left;
+}
+.development-info h3 {
+    color: #791A1A;
+    margin-bottom: 15px;
+}
+
+.development-info p {
+    margin: 10px 0;
+    color: #333;
+}
+.development-message {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 17px;
+}
+.development-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.development-button {
+    padding: 14px 30px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 160px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.development-button.back {
+    background-color: #791A1A;
+    color: white;
+    border: 2px solid #791A1A;
+}
+.development-button.back:hover {
+    background-color: #710909;
+    transform: translateY(-2px);
+}
+.development-button.home {
+    background-color: transparent;
+    color: #791A1A;
+    border: 2px solid #C07878;
+}
+.development-button.home:hover {
+    background-color: #F5E6E6;
+    transform: translateY(-2px);
+}
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #E0D0D0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 25px 0;
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #C07878, #791A1A);
+    width: 75%;
+    border-radius: 4px;
+    animation: progress 2s ease-in-out infinite;
+}
+@keyframes progress {
+    0%, 100% { width: 70%; }
+    50% { width: 75%; }
+}
+
+.progress-text {
+    color: #C07878;
+    font-size: 14px;
+    margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+    .development-icon {
+        font-size: 60px;
+    }
+    
+    .development-title {
+        font-size: 28px;
+    }
+    
+    .development-subtitle {
+        font-size: 18px;
+    }
+    
+    .development-actions {
+        flex-direction: column;
+    }
+    
+    .development-button {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .development-icon {
+        font-size: 50px;
+    }
+    
+    .development-title {
+        font-size: 24px;
+    }
+    
+    .development-info {
+        padding: 20px;
+    }
+    
+    .development-button {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
 }

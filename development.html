@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница в разработке - История конституции России</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="development.css">
+    <script src="script.js"></script>
+    <script src="development.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body class="development-page">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="burger-menu" id="burgerMenu">
+                    <div class="burger-menu_stick"></div>
+                    <div class="burger-menu_stick"></div>
+                    <div class="burger-menu_stick"></div>
+                </div>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html" class="nav-link">Главная</a></li>
+                        <li><a href="chronology.html" class="nav-link">Хронология</a></li>
+                        <li><a href="documents.html" class="nav-link">Документы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="development-content">
+            <div class="development-container">
+                <div class="development-icon">🚧</div>
+                <h1 class="development-title">Страница в разработке</h1>
+                
+                <div id="documentDetails">
+                    <p class="development-subtitle">Загружаем информацию о документе...</p>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="development-message">
+                    Мы активно работаем над тем, чтобы предоставить вам полный доступ к текстам всех конституций России. 
+                    Каждый документ проходит тщательную проверку, оцифровку и добавляется с подробными историческими комментариями.
+                </p>
+                <div class="development-actions">
+                    <a href="index.html" class="development-button home">На главную</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <div class="contact-info">
+                        <p>Email: demidovadashenca@yandex.ru</p>
+                        <p>Телефон: +7 (929) 044 50 46</p>
+                        <p>Демидова Дарья Дмитриевна</p>
+                        <p>Группа: 25-ИСТ-2</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Подписаться на обновления</h3>
+                    <form class="subscription-form" action="#" method="POST">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="email" placeholder="Ваш email" required>
+                        <div class="gender-form">
+                            <label>Пол:</label>
+                            <div class="gender-options">
+                                <div class="gender-option">
+                                    <input type="radio" id="male-documents" name="gender" value="male">
+                                    <label for="male-documents">Мужской</label>
+                                </div>
+                                <div class="gender-option">
+                                    <input type="radio" id="female-documents" name="gender" value="female">
+                                    <label for="female-documents">Женский</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit">Подписаться</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="chronology.html">Хронология</a></li>
+                        <li><a href="documents.html">Документы</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
